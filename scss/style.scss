@@ -1,0 +1,495 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
+@import "vendor/reset";
+
+html,
+body {
+  font-size: 10px;
+  font-family: "Lato", sans-serif;
+}
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.header {
+  background: url(../img/Img.jpg) no-repeat center;
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 80rem;
+
+
+  .nav {
+    padding-top: 1.2rem;
+
+
+    &__link {
+      font-size: 1.3rem;
+      margin-right: 7.5rem;
+      text-decoration: none;
+      color: #4d4959;
+      font-weight: 900;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  width: 4rem;
+  height: 0.5rem;
+  right: 40px;
+  top: 40px;
+  z-index: 10;
+  background-color: rgb(51, 51, 51);
+  transition: all 0.5s;
+  display: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 4rem;
+    height: 0.5rem;
+    left: 0;
+    top: 15px;
+    background-color: rgb(51, 51, 51);
+    transition: all 0.5s;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 4rem;
+    height: 0.5rem;
+    left: 0;
+    top: -15px;
+    background-color:rgb(51, 51, 51);
+    transition: all 0.5s;
+  }
+}
+
+.header__inner.active {
+  display: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgb(51, 51, 51);
+  position: fixed;
+  top: 0;
+  transition: all 0.5s;
+  z-index: 1000;
+  overflow: hidden;
+  .menu {
+    background: none;
+    
+    &::after {
+      transform: rotate(45deg);
+      top: 0;
+      transition: all 0.5s;
+      background-color: #fff;
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+      top: 0;
+      transition: all 0.5s;
+      background-color: #fff;
+    }
+  }
+  .nav {
+    z-index: 8;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 5rem;
+    .nav__link {
+      color: white;
+      font-size: 3rem;
+      margin: 0;
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid rgb(177, 175, 175);
+    }
+    .logo {
+      z-index: 1;
+      display: none;
+    }
+  }
+}
+
+// about ---------------------
+.about {
+  text-align: center;
+  margin-bottom: 140px;
+  &__img {
+    margin-top: 10vmax;
+  }
+  &__title {
+    margin-top: 25px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 3.6px;
+  }
+  &__text {
+    line-height: 1.8;
+    margin-top: 25px;
+    font-size: 1.8rem;
+    
+    color: #848789;
+  }
+}
+
+// brands ------------------
+
+.brands {
+  &__item {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+  }
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__coloumn {
+    flex: 0 1 33.333%;
+    position: relative;
+
+    &_b {
+      flex: 0 1 66.667%;
+      transition: all 1s linear;
+      &:hover {
+        background-color: #64c29e;
+        .brand__img {
+          opacity: 0.6;
+        }
+        .brand__icon {
+          display: block;
+        }
+      }
+
+      .brand__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .brand__icon {
+        transition: all 1s linear;
+        position: absolute;
+        display: none;
+        z-index: 2;
+        top: 40%;
+        left: 50%;
+        transform: translateY(-70%);
+        transform: translateX(-50%);
+        
+      }
+    }
+  }
+}
+.card {
+  text-align: center;
+  padding: 0 5.8rem;
+  position: relative;
+  padding-bottom: 50px;
+
+  &::before {
+    content: "";
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: #ffffff transparent transparent transparent;
+    display: block;
+    position: absolute;
+    bottom: -2%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  &__icon {
+    padding-top: 7rem;
+  }
+
+  &__title {
+    margin-top: 3rem;
+    font-size: 1.8rem;
+    letter-spacing: 3.6px;
+    text-align: center;
+    font-weight: 700;
+  }
+  &__text {
+    margin-top: 3rem;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    text-align: justify;
+    color: #848789;
+    position: relative;
+    padding-bottom: 30px;
+    &::after {
+      content: "";
+      width: 50px;
+      height: 1px;
+      background-color: #848789;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+
+      transform: translateX(-50%);
+    }
+  }
+  &__img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.social{
+  text-align: center;
+  margin-top: 12.5rem;
+  margin-bottom: 6rem;
+  &__icon{
+    margin-bottom: 3rem;
+  }
+  &__title{
+    font-size: 1.8rem;
+    margin-bottom: 2.6rem;
+    span{
+      color: #848789;
+    } 
+  }
+  &__text{
+    margin-bottom: 5rem;
+    line-height: 1.7;
+    font-size: 1.8rem;
+    color: #848789;
+  }
+  &__toggle{
+    display: flex;
+    justify-content: center;
+    .toggle__item{
+      width: 10px;
+      height: 10px;
+      border: 1px solid #848789;
+      border-radius: 50%;
+      margin: 0 .5rem;
+      &--active{
+        background-color: #848789;
+      }
+    }
+  }
+
+}
+.shop{
+  display: flex;
+  height: 535px;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+
+  
+
+
+}
+.shop__col{
+  flex-basis: 35%;
+ img{
+   object-fit: cover;
+   width: 100%;
+ }
+}
+.shop__col_l{
+  flex-basis: 15%;
+  position: relative;
+  height: 100%;
+  img{
+    
+    object-fit: cover;
+  }
+
+}
+.shop__row{
+  display: flex;
+  flex-wrap: wrap;
+}
+.shop__block{
+  flex-basis: 50%;
+}
+.shop__block-b{
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+.shop__discover{
+  background-color: #282f35;
+  padding: 7.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 13;
+  .shop__btn{
+    color: white;
+    font-size: 1.4rem;
+    padding: 2rem 6.5rem;
+    border: 1px solid #fff;
+    text-decoration: none;
+
+  }
+}
+.mailing{
+  text-align: center;
+  &__logo{
+    margin-top: 11rem;
+  }
+  &__title{
+    margin-top: 4rem;
+    font-size: 1.8rem;
+    color:#848789 ;
+  }
+  &__form{
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 11rem;
+    
+  }
+  &__input{
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    border: 1px solid #b0b0b1;
+    width:300px;
+
+
+    &::placeholder{
+      color: #848789;
+    }
+  }
+  &__btn{
+    padding: 1.6rem 3rem;
+    margin-left:1rem;
+    color: white;
+    background-color: #64c29e;
+    border: none;
+    
+  }
+
+ 
+}
+
+.footer{
+  padding: 9rem 0;
+  background-color: #f7f7f7;
+
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 1.2rem;
+  }
+  &__social{
+    display: flex;
+  }
+  .social__item{
+    margin: 0 .5rem;
+  }
+  .address{
+    h3{
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    p{
+      margin-top: .5rem;
+    }
+  }
+  .author{
+    img{
+      margin-left: 1rem;
+    }
+  }
+
+}
+
+
+
+@media screen and (max-device-width: 1200px) {
+  .card {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-device-width: 820px) {
+  .header{
+    display: fixed;
+    z-index: 10;
+    height: 100%;
+
+  }
+  .nav {
+    display: none;
+  }
+  .brands__coloumn{
+    flex-basis:100%;
+
+  }
+  .card__icon{
+    padding-top: 3rem;
+  }
+  .menu{
+    display: block;
+  }
+  .about{
+    margin-bottom: 50px;
+  }
+  .shop__col{
+    flex-basis: 100%;
+  }
+  .shop__col_l{
+    flex-basis: 50%;
+  }
+  .shop__discover{
+    padding: 4rem 0;
+  }
+  .mailing__form{
+    padding: 0 1rem;
+    margin-bottom: 5rem;
+  }
+  .mailing__logo{
+    margin-top: 5rem;
+  }
+  .footer{
+    padding: 3rem 0;
+  }
+  .footer__inner{
+    display: block;
+    .address{
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .footer__social{
+      justify-content: center;
+      margin-bottom: 2rem;
+      
+    }
+    .author{
+      text-align: center;
+    }
+    
+  }
+  
+  
+}
